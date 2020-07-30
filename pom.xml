@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <flink.version>1.6.1</flink.version>
+        <flink.version>1.10.0</flink.version>
         <scala.binary.version>2.11</scala.binary.version>
     </properties>
 
@@ -24,8 +24,8 @@
         <!--flink kafka-->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka-0.8_2.11</artifactId>
-            <version>1.8.0</version>
+            <artifactId>flink-connector-kafka-0.10_2.11</artifactId>
+            <version>1.10.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
@@ -41,6 +41,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>logback-core</artifactId>
+                    <groupId>ch.qos.logback</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>logback-classic</artifactId>
+                    <groupId>ch.qos.logback</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -58,11 +68,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.example.flink</groupId>
-            <artifactId>flink-demo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
